@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimbel NFT - GSC</title>
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Navbar */
+    nav {
+      background-color: #4CAF50;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      min-height: 64px; /* Tambahan agar tinggi konsisten */
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+    
+    .nav-links a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+      .logo {
+        margin-bottom: 0.5rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        gap: 0;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-links a {
+        width: 100%;
+        text-align: left;
+        margin: 0.2rem 0;
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+      }
+      .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 1.2rem;
+      }
+      nav {
+        position: relative;
+      }
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    
+    .divider {
+      height: 3px;
+      width: 100px;
+      background: white;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+    
+    .header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* FAC Section */
+    .fac-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .fac-section h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .fac-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .fac-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.2rem;
+      max-height: 500px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+    
+    .fac-item {
+      background: #f1f8ff;
+      border: 1px solid #d1e7ff;
+      border-radius: 8px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+    
+    .fac-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-color: #4CAF50;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-item .label {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .gallery-section h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .gallery-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    
+    /* Modal untuk gambar penuh */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    
+    .modal-img {
+      max-width: 70vw;
+      max-height: 70vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: none;
+      display: block;
+      background: #fff;
+    }
+    
+    .close {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2100;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .close:hover {
+      background: rgba(0,0,0,0.6);
+    }
+    
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Scrollbar styling */
+    .fac-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .fac-grid::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .fac-grid::-webkit-scrollbar-thumb {
+      background: #4CAF50;
+      border-radius: 10px;
+    }
+    
+    .fac-grid::-webkit-scrollbar-thumb:hover {
+      background: #3d8b40;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="about.html" style="color:inherit; text-decoration:none; display:flex; align-items:center;">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Bimbel GSC</span>
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle Navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="program.html">Program</a>
+      <a href="guru.html">Guru</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Bimbel Harus DI GSC</h1>
+      <h2>Mengapa Harus Bimbel GSC</h2>
+      <div class="divider"></div>
+      <p>Menyediakan lingkungan belajar yang mendukung dan inspiratif bagi siswa</p>
+    </div>
+    
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+      <h2>Informasi Bimbel GSC</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="galeri/brosur2.jpg" alt="Kegiatan Belajar" data-full="galeri/brosur2.jpg">
+          <div class="gallery-caption">
+            <h3>Penerimaan Peserta Didik Baru</h3>
+            <p>Tahun Ajaran 2025/2026 di Bimbel GSC & Bimba ABC telah dibuka. Ayo daftar sekarang!</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/brosur1.jpg" alt="Diskusi dengan Tutor" data-full="galeri/brosur1.jpg">
+          <div class="gallery-caption">
+            <h3>Bimbel GSC untuk PraSD - SMA</h3>
+            <p>Pendaftaran dibuka! Kelas nyaman, multimedia, dan terima KJP.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/brousur3.jpg" alt="Workshop Persiapan UTBK" data-full="galeri/brousur3.jpg">
+          <div class="gallery-caption">
+            <h3>Bimba ABC untuk Anak Usia Dini</h3>
+            <p>Belajar membaca, menulis & berhitung dengan metode menyenangkan.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/brousur4.jpg" alt="Kelulusan Siswa" data-full="galeri/brousur4.jpg">
+          <div class="gallery-caption">
+            <h3>Global Sains Centre</h3>
+            <p>Belajar nyaman, full AC, modul gratis, dan kelas maksimal 12 siswa.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/info1.jpg" alt="Seminar Motivasi" data-full="galeri/info1.jpg">
+          <div class="gallery-caption">
+            <h3>Kelas Privat (1 Guru - 1 Siswa)</h3>
+            <p>Guru datang ke rumah, waktu fleksibel, belajar makin fokus!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stats Section -->
+    <div class="stats">
+      <div class="stat-item">
+        <i class="fas fa-users"></i>
+        <div class="number">250+</div>
+        <div class="label">Siswa Aktif</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <div class="number">40+</div>
+        <div class="label">Pengajar Berpengalaman</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-trophy"></i>
+        <div class="number">95%</div>
+        <div class="label">Tingkat Kelulusan</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal untuk gambar penuh -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="fullImage" class="modal-img" src="" alt="">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a
+        href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel."
+        target="_blank"
+        title="Chat via WhatsApp"
+        style="color: #25D366;"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>Bimbingan Belajar GSC</p>
+  </footer>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // FAC items (jika ada .fac-grid)
+  const facGrid = document.querySelector('.fac-grid');
+  if (facGrid) {
+    for (let i = 1; i <= 10; i++) {
+      const facItem = document.createElement('div');
+      facItem.className = 'fac-item';
+      facItem.innerHTML = `<strong>Riproduzione: ${i}.0</strong>`;
+      facGrid.appendChild(facItem);
+    }
+  }
+
+  // Header animation
+  const header = document.querySelector('.header');
+  if (header) {
+    header.style.opacity = '0';
+    header.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      header.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      header.style.opacity = '1';
+      header.style.transform = 'translateY(0)';
+    }, 300);
+  }
+
+  // Modal untuk gambar galeri
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('fullImage');
+  const closeBtn = document.querySelector('.close');
+  const galleryImages = document.querySelectorAll('.gallery-item img');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', function() {
+      modal.style.display = 'flex';
+      modalImg.src = this.dataset.full || this.src;
+      modalImg.alt = this.alt;
+    });
+  });
+
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    modalImg.src = '';
+  });
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+  });
+
+  // Navbar mobile toggle
+  const navToggle = document.querySelector('.navbar-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('show');
+  });
+});
+  </script>
+</body>
+</html>

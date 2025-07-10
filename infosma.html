@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimbingan SMA - Bimbel GSC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+  /* Navbar */
+  nav {
+    background-color: #4CAF50;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+  
+  nav a.active {
+    background-color: rgba(255,255,255,0.3);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo i {
+    margin-right: 10px;
+  }
+  
+  .navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+  
+  
+  .navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+  
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      flex: 1;
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .divider {
+      height: 3px;
+      width: 100px;
+      background: white;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+    
+    .header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Content Section */
+    .content-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .content-section h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .content-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .content-text {
+      color: #7f8c8d;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .content-text ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .content-text li {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+    
+    .content-text li::before {
+      content: "✓";
+      color: #4CAF50;
+      font-weight: bold;
+      position: absolute;
+      left: -1.5rem;
+    }
+    
+    .highlight-box {
+      background: #f1f8ff;
+      border-left: 4px solid #4CAF50;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .highlight-box h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+    
+    /* Program Features */
+    .features-section {
+      margin-top: 3rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .feature-card {
+      background: #f1f8ff;
+      border: 1px solid #d1e7ff;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-color: #4CAF50;
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: #4CAF50;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .feature-card p {
+      color: #7f8c8d;
+    }
+    
+    /* Subjects Section */
+    .subjects-section {
+      margin-top: 3rem;
+    }
+    
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .subject-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      border: 2px solid #d1e7ff;
+      transition: all 0.3s ease;
+    }
+    
+    .subject-card:hover {
+      border-color: #4CAF50;
+      transform: scale(1.05);
+    }
+    
+    .subject-card i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .subject-card h3 {
+      color: #2c3e50;
+      font-size: 1.2rem;
+    }
+    
+    /* Jurusan Section */
+    .jurusan-section {
+      margin-top: 3rem;
+      background: #f1f8ff;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    
+    .jurusan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    
+    .jurusan-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid #4CAF50;
+    }
+    
+    .jurusan-card h3 {
+      color: #4CAF50;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .jurusan-card ul {
+      padding-left: 1.5rem;
+    }
+    
+    .jurusan-card li {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    
+    .jurusan-card li::before {
+      content: "•";
+      color: #4CAF50;
+      font-weight: bold;
+      position: absolute;
+      left: -1.2rem;
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      margin-top: 3rem;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid #d1e7ff;
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: """;
+      font-size: 5rem;
+      color: #e8f5e9;
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      color: #7f8c8d;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #4CAF50;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    
+    .author-info h4 {
+      color: #2c3e50;
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      text-align: center;
+      color: white;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      background: #388e3c;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-item .label {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: auto;
+      width: 100%;
+    }
+    
+    .footer-stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-stat-item {
+      text-align: center;
+      padding: 1rem;
+      min-width: 150px;
+    }
+    
+    .footer-stat-item .number {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+    
+    .footer-stat-item .label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .logo {
+        margin-bottom: 1rem;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-links a {
+        margin: 0.3rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .features-grid,
+      .subjects-grid,
+      .testimonials-grid,
+      .jurusan-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-stats {
+        flex-direction: column;
+      }
+      
+      .footer-stat-item {
+        margin-bottom: 1rem;
+      }
+    }
+    
+    /* Jadwal & Daftar Siswa Section */
+    .kelas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .kelas-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: left;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      border: 2px solid #d1e7ff;
+      transition: all 0.3s ease;
+    }
+    
+    .kelas-card:hover {
+      border-color: #4CAF50;
+      box-shadow: 0 8px 24px rgba(76,175,80,0.10);
+    }
+    
+    .kelas-card h3 {
+      color: #2c3e50;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .kelas-jadwal {
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .kelas-card ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+    
+    .kelas-card li {
+      margin-bottom: 0.5rem;
+      color: #7f8c8d;
+    }
+    
+    .kelas-nonaktif {
+      opacity: 0.6;
+    }
+    
+    .kelas-nonaktif h3 {
+      color: #e74c3c;
+    }
+
+    /* Stats Section Merah */
+.stats-section {
+  background: #e74c3c;
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.stats-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.stats-section .cta-btn {
+  background: white;
+  color: #e74c3c;
+  margin-bottom: 3rem;
+}
+
+.stats-section .stats {
+  background: transparent;
+}
+
+.stats-section .stat-item {
+  background: transparent;
+  color: white;
+}
+
+.stats-section .number,
+.stats-section .label {
+  color: white;
+}
+
+/* Footer Sederhana */
+footer {
+  background: #2c3e50;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 0.8rem;
+  font-size: 1.5rem;
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="about.html" style="color:inherit; text-decoration:none; display:flex; align-items:center;">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Bimbel GSC</span>
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle Navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="guru.html">Guru</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Bimbingan Belajar SMA</h1>
+      <div class="divider"></div>
+      <p>Program khusus untuk siswa SMA kelas 10-12 dengan pendekatan belajar intensif dan persiapan UTBK-SBMPTN.</p>
+    </div>
+    
+    <!-- Content Section -->
+    <div class="content-section">
+      <h2>Program Unggulan untuk Siswa SMA</h2>
+      <p class="content-text">
+        Program Bimbingan Belajar SMA dari Bimbel GSC dirancang khusus untuk membantu siswa kelas 10, 11, dan 12 dalam memahami materi pelajaran, meningkatkan prestasi akademik, dan mempersiapkan diri menghadapi UTBK-SBMPTN. Dengan metode pembelajaran yang inovatif dan pengajar profesional, kami membantu siswa menguasai konsep dasar dan mengembangkan kemampuan berpikir kritis.
+      </p>
+      
+      <div class="highlight-box">
+        <h3>Mengapa Memilih Program SMA di Bimbel GSC?</h3>
+        <p>Program kami telah membantu lebih dari 1.500 siswa SMA meraih nilai terbaik dan diterima di PTN favorit. Dengan rasio guru dan siswa 1:6, setiap siswa mendapatkan perhatian optimal sesuai kebutuhannya.</p>
+      </div>
+      
+      <h2>Target Pembelajaran</h2>
+      <p class="content-text">
+        Program ini bertujuan untuk:
+      </p>
+      <ul class="content-text">
+        <li>Memahami konsep dasar semua mata pelajaran sesuai jurusan</li>
+        <li>Meningkatkan kemampuan pemecahan masalah kompleks</li>
+        <li>Mengembangkan strategi belajar efektif untuk UTBK</li>
+        <li>Mempersiapkan diri menghadapi Ujian Akhir Sekolah</li>
+        <li>Membangun kepercayaan diri dalam belajar dan ujian</li>
+        <li>Mengasah kemampuan berpikir kritis dan analitis tingkat tinggi</li>
+      </ul>
+      
+      <!-- Program Features -->
+      <div class="features-section">
+        <h2>Keunggulan Program</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Kelas Khusus</h3>
+            <p>Maksimal 8 siswa per kelas untuk memastikan perhatian penuh dari pengajar</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3>Modul UTBK</h3>
+            <p>Modul pembelajaran lengkap yang dirancang khusus untuk persiapan UTBK</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3>Pengajar PTN</h3>
+            <p>Pengajar dari PTN terkemuka dengan pengalaman mengajar SMA minimal 5 tahun</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <h3>Simulasi UTBK</h3>
+            <p>Akses ke platform simulasi UTBK dengan ribuan soal dan analisis kemampuan</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Subjects Section -->
+      <div class="subjects-section">
+        <h2>Mata Pelajaran Utama</h2>
+        <p class="content-text">Kami memberikan bimbingan untuk semua mata pelajaran utama SMA:</p>
+        <div class="subjects-grid">
+          <div class="subject-card">
+            <i class="fas fa-calculator"></i>
+            <h3>Matematika</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-flask"></i>
+            <h3>Fisika</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-dna"></i>
+            <h3>Kimia</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-seedling"></i>
+            <h3>Biologi</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-language"></i>
+            <h3>Bahasa Inggris</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-book"></i>
+            <h3>Bahasa Indonesia</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-landmark"></i>
+            <h3>Ekonomi</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-globe-asia"></i>
+            <h3>Geografi</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jadwal & Daftar Siswa SMA Section -->
+      <div class="features-section">
+        <h2>Jadwal & Daftar Siswa SMA</h2>
+        <div class="kelas-grid">
+          <!-- Kelas 10A -->
+          <div class="kelas-card">
+            <h3>Kelas 10A</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Kamis 19.00-20.30, Sabtu 08.00-09.30, Sabtu 09.30-11.00</div>
+            <ol>
+              <li>Abella Safitri Surmoso</li>
+              <li>Kheyza Henita Sari</li>
+              <li>Felissa Hashifah Dwi Iskandar</li>
+              <li>Marliana Al - Gayza</li>
+              <li>Ghassani Khairina Nugroho</li>
+              <li>Difasuci Jagaparamudita</li>
+              <li>Tiffany Raytama Wulandari</li>
+              <li>Tahsisul Abadiah</li>
+              <li>Kinara Dwi Ardiyana</li>
+            </ol>
+          </div>
+          <!-- Kelas 10B -->
+          <div class="kelas-card">
+            <h3>Kelas 10B</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Kamis 19.00-20.30, Sabtu 08.00-09.30, Sabtu 09.30-11.00</div>
+            <ol>
+              <li>Fattan Alfahmi Irsyad</li>
+              <li>Muhammad Balqis Alamsyah</li>
+              <li>Yulia Anisa Rachman MAN</li>
+              <li>Callista Nayla Cayadewi MAN</li>
+            </ol>
+          </div>
+          <!-- Kelas 11 -->
+          <div class="kelas-card">
+            <h3>Kelas 11</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Jumat 17.00-18.30, Jumat 19.00-20.30, Sabtu 11.00-12.30</div>
+            <ol>
+              <li>Maulida Azizah</li>
+              <li>Hifni Ilmy Muhalla MAN</li>
+              <li>Azim Mu'id Ghaniy MAN</li>
+              <li>Sylviana Murni</li>
+              <li>Bimo Afriyadi</li>
+              <li>Nayla Annazhwa Sulistyani</li>
+              <li>Noura Putri Nur Syahida</li>
+              <li>Rasya Rahmadani</li>
+              <li>Rahel Ramadhani</li>
+              <li>Rizka Nurjannah</li>
+              <li>Rizki Nurjannah</li>
+            </ol>
+          </div>
+          <!-- Kelas 12 -->
+          <div class="kelas-card">
+            <h3>Kelas 12</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Jumat 17.00-18.30, Jumat 19.00-20.30, Sabtu 11.00-12.30</div>
+            <ol>
+              <li>Siska Laikatus Sa'adah</li>
+              <li>Nikita Arifa Putri</li>
+              <li>Najwa Nur Azizah</li>
+              <li>Azkia Assyfa Nurahmah MAN</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Jurusan Section -->
+      <div class="jurusan-section">
+        <h2>Program Berdasarkan Jurusan</h2>
+        <div class="jurusan-grid">
+          <div class="jurusan-card">
+            <h3>Program IPA</h3>
+            <ul>
+              <li>Fokus Matematika, Fisika, Kimia, Biologi</li>
+              <li>Pemantapan konsep dasar sains</li>
+              <li>Latihan soal HOTS untuk OSN</li>
+              <li>Persiapan khusus PTN Saintek</li>
+              <li>Pembahasan soal UTBK Saintek</li>
+            </ul>
+          </div>
+          
+          <div class="jurusan-card">
+            <h3>Program IPS</h3>
+            <ul>
+              <li>Fokus Ekonomi, Geografi, Sosiologi</li>
+              <li>Pemahaman konsep sosial terintegrasi</li>
+              <li>Analisis kasus terkini</li>
+              <li>Persiapan khusus PTN Soshum</li>
+              <li>Pembahasan soal UTBK Soshum</li>
+            </ul>
+          </div>
+          
+          <div class="jurusan-card">
+            <h3>Program Campuran</h3>
+            <ul>
+              <li>Kombinasi Saintek dan Soshum</li>
+              <li>Fleksibilitas pemilihan mata pelajaran</li>
+              <li>Strategi UTBK untuk jurusan campuran</li>
+              <li>Persiapan Ujian Mandiri PTN</li>
+              <li>Konsultasi pemilihan jurusan kuliah</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Jadwal Section -->
+      <div class="features-section">
+        <h2>Jadwal Belajar</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-calendar-day"></i>
+            </div>
+            <h3>Kelas Reguler</h3>
+            <p>Senin & Rabu<br>16:00 - 18:30 WIB</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-calendar-week"></i>
+            </div>
+            <h3>Kelas Intensif</h3>
+            <p>Selasa & Kamis<br>16:00 - 18:30 WIB<br>Sabtu: 09:00 - 12:00 WIB</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <h3>Kelas Akhir Pekan</h3>
+            <p>Sabtu & Minggu<br>09:00 - 13:00 WIB</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-clock"></i>
+            </div>
+            <h3>Kelas Privat</h3>
+            <p>Jadwal fleksibel sesuai kesepakatan dengan pengajar</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonials -->
+      <div class="testimonials-section">
+        <h2>Testimoni Siswa</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Setelah ikut program IPA di Bimbel GSC, nilai fisika saya naik signifikan. Pengajar sangat menguasai materi dan mampu menjelaskan konsep sulit dengan mudah. Akhirnya saya diterima di ITB!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AR</div>
+              <div class="author-info">
+                <h4>Ahmad Rizky</h4>
+                <p>Alumni Kelas 12, SMAN 1 Jakarta</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Program persiapan UTBK di Bimbel GSC sangat membantu. Tryout rutin dan pembahasan soalnya sangat detail. Berkat strategi yang diajarkan, saya berhasil masuk UI dengan nilai tinggi."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">DS</div>
+              <div class="author-info">
+                <h4>Dewi Sartika</h4>
+                <p>Alumni Kelas 12, SMAN 3 Bandung</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Kelas ekonomi di GSC sangat interaktif dengan studi kasus nyata. Tidak hanya belajar teori tapi juga aplikasinya. Sekarang saya lebih siap menghadapi UTBK Soshum dan berhasil masuk FEB UI."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">BP</div>
+              <div class="author-info">
+                <h4>Budi Pratama</h4>
+                <p>Alumni Kelas 12, SMAN 8 Surabaya</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Stats Section -->
+      <div class="stats">
+        <div class="stat-item">
+          <i class="fas fa-user-graduate"></i>
+          <div class="number">77</div>
+          <div class="label">Siswa SMA</div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <div class="number">35+</div>
+          <div class="label">Pengajar SMA</div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-medal"></i>
+          <div class="number">92%</div>
+          <div class="label">Nilai di Atas KKM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel." target="_blank" title="Chat via WhatsApp" style="color: #25D366;">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>Bimbingan Belajar GSC</p>
+  </footer>
+</body>
+</html>

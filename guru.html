@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengajar Profesional - Bimbel NFT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Navbar */
+    nav {
+      background-color: #4CAF50;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    nav a.active {
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: calc(100vh - 200px);
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .divider {
+      height: 3px;
+      width: 100px;
+      background: white;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+    
+    .header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Guru Section */
+    .guru-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .guru-section h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .guru-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .guru-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .guru-card {
+      background: #f1f8ff;
+      border: 1px solid #d1e7ff;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .guru-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: #4CAF50;
+    }
+    
+    .guru-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #e8f5e9;
+      margin-bottom: 1.5rem;
+      background: #4CAF50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+    }
+    
+    .guru-card h3 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+    
+    .guru-subject {
+      color: #4CAF50;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .guru-card p {
+      color: #7f8c8d;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .guru-stats {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    
+    .guru-stat {
+      text-align: center;
+    }
+    
+    .guru-stat .number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    
+    .guru-stat .label {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-item .label {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .gallery-section h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .gallery-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .gallery-item {
+      background: #f1f8ff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-6px) scale(1.03);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .gallery-caption {
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .gallery-caption h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+      color: #2c3e50;
+    }
+    
+    .gallery-caption p {
+      margin: 0;
+      color: #7f8c8d;
+      font-size: 0.98rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .container {
+      animation: fadeInUp 1s ease;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .guru-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .logo {
+        margin-bottom: 1rem;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-links a {
+        margin: 0.3rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .guru-photo {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        position: relative;
+      }
+      .logo {
+        margin-bottom: 0.5rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        gap: 0;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-links a {
+        width: 100%;
+        text-align: left;
+        margin: 0.2rem 0;
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+      }
+      .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="about.html" style="color:inherit; text-decoration:none; display:flex; align-items:center;">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Bimbel GSC</span>
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle Navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="guru.html" class="active">Guru</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Tim Pengajar Profesional</h1>
+      <div class="divider"></div>
+      <p>Kenali tim pengajar kami yang berpengalaman, berdedikasi, dan siap membantu meraih kesuksesan akademis Anda.</p>
+    </div>
+    
+<!-- Guru Section -->
+<div class="guru-section">
+  <h2>Tenaga Pengajar Berpengalaman</h2>
+  <div class="guru-grid">
+    <!-- Guru 1 -->
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Dina .jpg" alt="Kaka Dina S.Pd" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Dina S.Pd Universitas Negeri Jakarta</h3>
+    </div>
+    
+    <!-- Guru 2 -->
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Indah.jpg" alt="Kaka Indah S.Pd" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3> Kaka Indah S.Pd Universitas Negeri Jakarta (Guru SMKS Ristek)</h3>
+    </div>
+    
+    <!-- Guru 3 -->
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Vira.jpg" alt="Kaka Vira S.Si" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Vira S.Si Universitas Indonesia (Sarjana Muda)</h3>
+    </div>
+    
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Anike.jpg" alt="Kaka Anike S.Pd" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Anike S.Pd Universitas Negeri Jakarta (Guru SMPN 144)</h3>
+    </div>
+
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Anita .jpg" alt="Kaka Anita S.Pd" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Anita S.Pd Universitas Dr. Hamka (Guru Swasta)</h3>
+    </div>
+
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Firda.jpg" alt="Kaka Firda" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Firda Universitas Dr. Hamka (Mahasiswa smt 6)</h3>
+    </div>
+
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak melani.jpg" alt="Kaka Melani" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Melani Universitas Negeri Jakarta (Mahasiswa smt 6)</h3>
+    </div>
+
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/kak nicky.jpg" alt="Kaka Nicky S.Pd" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Nicky S.Pd Universitas Negeri Jakarta (Guru Swasta)</h3>
+    </div>
+
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Rohima.jpg" alt="Kaka Rohima S.Pd" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Rohima S.Pd Universitas Negeri Jakarta</h3>
+    </div>
+
+    <div class="guru-card">
+      <div class="guru-photo">
+        <img src="galeri/Kak Sekar.jpg" alt="Kaka Sekar S.Pd" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <h3>Kaka Sekar S.Pd Universitas Dr. Hamka (Guru SMPN 193)</h3>
+      </div>
+    </div>   
+  </div>
+</div>
+        
+        
+    
+    <!-- Stats Section -->
+    <div class="stats">
+      <div class="stat-item">
+        <i class="fas fa-users"></i>
+        <div class="number">40+</div>
+        <div class="label">Pengajar Profesional</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-graduation-cap"></i>
+        <div class="number">80%</div>
+        <div class="label">Bergelar S2/S3</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-chalkboard"></i>
+        <div class="number">15+</div>
+        <div class="label">Tahun Pengalaman</div>
+      </div>
+    </div>
+    
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+      <h2>Galeri Kegiatan GSC</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="galeri/kegiatan1.jpg" alt="Kegiatan Belajar 1">
+          <div class="gallery-caption">
+            <h3>Sesi Belajar Serius</h3>
+            <p>Siswa antusias mengikuti pembelajaran di kelas.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/kegiatan2.jpg" alt="Kegiatan Belajar 2">
+          <div class="gallery-caption">
+            <h3>Diskusi Ringan di Kelas</h3>
+            <p>Siswa berdiskusi sambil menikmati snack bersama guru.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/kegiatan3.jpg" alt="Kegiatan Belajar 3">
+          <div class="gallery-caption">
+            <h3>Belajar Outdoor</h3>
+            <p>Kegiatan belajar di luar ruangan dengan penuh semangat.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/kegiatan4.jpg" alt="Kegiatan Belajar 4">
+          <div class="gallery-caption">
+            <h3>Kegiatan Edukasi Bersama</h3>
+            <p>Foto bersama setelah pembelajaran luar kelas.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/kegiatan5.jpg" alt="Kegiatan Belajar 5">
+          <div class="gallery-caption">
+            <h3>Proyek Sains Sederhana</h3>
+            <p>Mengerjakan proyek kelompok dengan alat peraga.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/kegiatan6.jpg" alt="Kegiatan Belajar 6">
+          <div class="gallery-caption">
+            <h3>Kerja Kelompok Aktif</h3>
+            <p>Diskusi dan mencatat materi secara kolaboratif.</p>
+          </div>
+        </div>
+        <!-- Tambahkan gallery-item baru sesuai kebutuhan -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a
+        href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel."
+        target="_blank"
+        title="Chat via WhatsApp"
+        style="color: #25D366;"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>Bimbingan Belajar GSC.</p>
+  </footer>
+
+  <!-- Tambahkan sebelum </body> -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Navbar mobile toggle
+  const navToggle = document.querySelector('.navbar-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('show');
+  });
+});
+</script>
+</body>
+</html>

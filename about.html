@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Kami - Bimbel GSC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Navbar */
+    nav {
+      background-color: #4CAF50;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    nav a.active {
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: calc(100vh - 200px);
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .divider {
+      height: 3px;
+      width: 100px;
+      background: white;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+    
+    .header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* About Section */
+    .about-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .about-section h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .about-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .about-content {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    
+    .about-text {
+      flex: 2;
+      min-width: 260px;
+    }
+    
+    .about-text h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .about-text p {
+      color: #7f8c8d;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .about-image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 200px;
+    }
+    
+    .about-image img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    
+    /* Values Section */
+    .values-section {
+      margin-top: 3rem;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .value-card {
+      background: #f1f8ff;
+      border: 1px solid #d1e7ff;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+    
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-color: #4CAF50;
+    }
+    
+    .value-icon {
+      font-size: 3rem;
+      color: #4CAF50;
+      margin-bottom: 1.5rem;
+    }
+    
+    .value-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .value-card p {
+      color: #7f8c8d;
+    }
+    
+    /* Timeline Section */
+    .timeline-section {
+      margin-top: 3rem;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 3rem auto 0;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #4CAF50;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 10px 40px;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #4CAF50;
+      border: 4px solid white;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .timeline-item:nth-child(odd)::after {
+      right: -12px;
+    }
+    
+    .timeline-item:nth-child(even)::after {
+      left: -12px;
+    }
+    
+    .timeline-content {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      border-left: 4px solid #4CAF50;
+    }
+    
+    .timeline-content h3 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-content p {
+      color: #7f8c8d;
+    }
+    
+    .timeline-year {
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-item .label {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Navbar Mobile Responsive */
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        position: relative;
+      }
+      .logo {
+        margin-bottom: 0.5rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        gap: 0;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-links a {
+        width: 100%;
+        text-align: left;
+        margin: 0.2rem 0;
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+      }
+      .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 1.2rem;
+      }
+    }
+
+    /* Tambahkan di bagian <style> */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .container {
+      animation: fadeInUp 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="about.html" style="color:inherit; text-decoration:none; display:flex; align-items:center;">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Bimbel GSC</span>
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle Navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="guru.html">Guru</a>
+      <a href="about.html" class="active">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Tentang Bimbel GSC</h1>
+      <div class="divider"></div>
+      <p>Sejak 2010, kami berkomitmen untuk memberikan pendidikan berkualitas tinggi dan membantu ribuan siswa meraih kesuksesan akademis.</p>
+    </div>
+    
+    <!-- About Section -->
+    <div class="about-section">
+      <h2>Profil Kami</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Visi Kami</h3>
+          <p>Menjadi lembaga bimbingan belajar terdepan yang memberikan kontribusi signifikan dalam meningkatkan kualitas pendidikan di Indonesia melalui metode pembelajaran inovatif dan pendekatan personal.</p>
+          
+          <h3>Misi Kami</h3>
+          <p>1. Menyediakan lingkungan belajar yang mendukung dan inspiratif bagi siswa.<br>
+          2. Mengembangkan potensi akademik siswa melalui pendekatan pembelajaran yang personal.<br>
+          3. Menghadirkan tenaga pengajar berkualitas tinggi dan berdedikasi.<br>
+          4. Mengintegrasikan teknologi terkini dalam proses pembelajaran.</p>
+          
+          <h3>Sejarah Singkat</h3>
+          <p>Bimbel GSC didirikan pada tahun 2010 oleh sekelompok alumni universitas ternama yang memiliki passion di bidang pendidikan. Awalnya hanya memiliki satu kelas dengan 15 siswa, kini kami telah berkembang menjadi lembaga bimbingan belajar terpercaya dengan puluhan siswa sukses.</p>
+        </div>
+        
+        <div class="about-image">
+          <!-- Ganti ikon dengan foto -->
+          <img src="galeri/logo_GSC.jpg" alt="Foto Profil Bimbel GSC" style="width: 260px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Values Section -->
+    <div class="values-section">
+      <h2>Nilai-nilai Kami</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Inovasi</h3>
+          <p>Terus mengembangkan metode pembelajaran terbaru yang efektif dan menyenangkan.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Integritas</h3>
+          <p>Menjunjung tinggi kejujuran dan etika dalam setiap aspek pendidikan.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Kolaborasi</h3>
+          <p>Membangun kerja sama yang erat antara siswa, orang tua, dan pengajar.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Kesuksesan</h3>
+          <p>Fokus pada pencapaian hasil terbaik bagi setiap siswa.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stats Section -->
+    <div class="stats">
+      <div class="stat-item">
+        <i class="fas fa-users"></i>
+        <div class="number">99+</div>
+        <div class="label">Siswa Terdaftar</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-graduation-cap"></i>
+        <div class="number">95%</div>
+        <div class="label">Tingkat Kelulusan</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-building"></i>
+        <div class="number">25+</div>
+        <div class="label">Cabang di Indonesia</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a
+        href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel."
+        target="_blank"
+        title="Chat via WhatsApp"
+        style="color: #25D366;"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>Bimbingan Belajar GSC.</p>
+  </footer>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Navbar mobile toggle
+  const navToggle = document.querySelector('.navbar-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('show');
+  });
+});
+</script>
+</body>
+</html>

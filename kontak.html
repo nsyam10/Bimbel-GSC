@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hubungi Kami - Bimbel NFT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Navbar */
+    nav {
+      background-color: #4CAF50;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    nav a.active {
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: calc(100vh - 200px);
+      animation: fadeInUp 1s ease;
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .divider {
+      height: 3px;
+      width: 100px;
+      background: white;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+    
+    .header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .contact-info h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .contact-info h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .contact-details {
+      margin-top: 2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      color: #4CAF50;
+      margin-right: 1rem;
+      min-width: 40px;
+    }
+    
+    .contact-text h3 {
+      color: #2c3e50;
+      margin-bottom: 0.3rem;
+    }
+    
+    .contact-text p {
+      color: #7f8c8d;
+    }
+    
+    .social-contact {
+      margin-top: 2rem;
+    }
+    
+    .social-contact a {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      background: #f1f8ff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 45px;
+      color: #4CAF50;
+      font-size: 1.2rem;
+      margin-right: 0.8rem;
+      transition: all 0.3s;
+    }
+    
+    .social-contact a:hover {
+      background: #4CAF50;
+      color: white;
+      transform: translateY(-5px);
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .contact-form h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .contact-form h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #d1e7ff;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: #4CAF50;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn-submit {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-submit:hover {
+      background: #3d8b40;
+    }
+    
+    .whatsapp-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .whatsapp-section h2 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .whatsapp-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    }
+    
+    .whatsapp-btn i {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-contact {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-top: 1rem;
+    }
+    
+    .map-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .map-section h2 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      position: relative;
+    }
+    
+    .map-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .map-container {
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-item .label {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .logo {
+        margin-bottom: 1rem;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-links a {
+        margin: 0.3rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .contact-section {
+        flex-direction: column;
+      }
+      
+      .whatsapp-section {
+        padding: 1.5rem;
+      }
+      
+      .whatsapp-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+      
+      .map-container {
+        height: 300px;
+      }
+    }
+    
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        position: relative;
+      }
+      .logo {
+        margin-bottom: 0.5rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        gap: 0;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-links a {
+        width: 100%;
+        text-align: left;
+        margin: 0.2rem 0;
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+      }
+      .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 1.2rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+  <div class="logo">
+    <a href="about.html" style="color:inherit; text-decoration:none; display:flex; align-items:center;">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Bimbel GSC</span>
+    </a>
+  </div>
+  <button class="navbar-toggle" aria-label="Toggle Navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="program.html">Program</a>
+    <a href="guru.html">Guru</a>
+    <a href="about.html">Tentang Kami</a>
+    <a href="kontak.html" class="active">Kontak</a>
+  </div>
+</nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Hubungi Kami</h1>
+      <div class="divider"></div>
+      <p>Kami siap membantu Anda. Jangan ragu untuk menghubungi tim kami melalui berbagai saluran yang tersedia.</p>
+    </div>
+    
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <div class="contact-info">
+        <h2>Informasi Kontak</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div style="line-height: 1.5;">
+              <a href="https://www.google.com/maps/place/RWCW%2B8X3,+Jl.+Raya+Kayu+Tinggi,+RT.9%2FRW.5,+Cakung+Tim.,+Kec.+Cakung,+Kota+Jakarta+Timur,+Daerah+Khusus+Ibukota+Jakarta+13910" 
+                 target="_blank" 
+                 style="text-decoration: none; color: #0066cc;">
+                  RWCW+8X3, Jl. Raya Kayu Tinggi<br>
+    RT.9/RW.5, Cakung Tim.<br>
+  </a>
+</div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Telepon</h3>
+              <p>+62 856 7528 671 (Customer Service)</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Email</h3>
+              <p>info@bimbelnft.com<br>cs@bimbelnft.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Jam Operasional</h3>
+              <p>Senin-Jumat: 08:00 - 20:00 WIB<br>Sabtu-Minggu: 08:00 - 17:00 WIB</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="social-contact">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a
+        href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel."
+        target="_blank"
+        title="Chat via WhatsApp"
+        style="color: #25D366;"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <h2>Kirim Pesan</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Masukkan email Anda">
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Nomor Telepon</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Masukkan nomor telepon" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subjek</label>
+            <input type="text" id="subject" class="form-control" placeholder="Subjek pesan" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea id="message" class="form-control" placeholder="Tulis pesan Anda" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- WhatsApp Section -->
+    <div class="whatsapp-section">
+      <h2>Chat Langsung via WhatsApp</h2>
+      <p>Dapatkan respon cepat dari tim kami melalui WhatsApp</p>
+      <a href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel." target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Chat Sekarang
+      </a>
+      <div class="whatsapp-contact">+62 821-1115-9144</div>
+    </div>
+    
+    <!-- Map Section -->
+    <div class="map-section">
+      <h2>Lokasi Kami</h2>
+      <p>Kunjungi bimbel pusat kami di Jakarta Timur untuk konsultasi langsung</p>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.85412531529484!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4333f2e0e1d%3A0x1e0b5b5b5b5b5b5b!2sJl.%20Pendidikan%20No.10%2C%20Jakarta%20Pusat%2C%20DKI%20Jakarta%2010110!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    
+    <!-- Stats Section -->
+    <div class="stats">
+      <div class="stat-item">
+        <i class="fas fa-headset"></i>
+        <div class="number">24/7</div>
+        <div class="label">Layanan Pelanggan</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-clock"></i>
+        <div class="number">30mnt</div>
+        <div class="label">Respon Cepat</div>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-comments"></i>
+        <div class="number">5+</div>
+        <div class="label">Saluran Kontak</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a
+        href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel."
+        target="_blank"
+        title="Chat via WhatsApp"
+        style="color: #25D366;"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>Bimbingan Belajar GSC.</p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Ambil nilai dari form
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      const email = document.getElementById('email').value;
+      
+      // Validasi nomor telepon
+      if (!/^[0-9]{10,14}$/.test(phone)) {
+        alert('Nomor telepon harus terdiri dari 10-14 digit angka');
+        return;
+      }
+      
+      // Format pesan untuk WhatsApp
+      const whatsappMessage = 
+        `Halo, saya ${name}%0A%0A` +
+        `*Subjek:* ${subject}%0A` +
+        `*Pesan:* ${message}%0A` +
+        `*Nomor HP:* ${phone}%0A` +
+        `*Email:* ${email || 'Tidak diisi'}`;
+      
+      // Nomor WhatsApp tujuan
+      const whatsappNumber = '628567528671'; // Tanpa tanda + atau 00
+      
+      // Redirect ke WhatsApp
+      window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+    });
+  </script>
+  <!-- Ganti script navbar toggle dengan versi DOMContentLoaded -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Navbar mobile toggle
+  const navToggle = document.querySelector('.navbar-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('show');
+  });
+});
+</script>
+</body>
+</html>

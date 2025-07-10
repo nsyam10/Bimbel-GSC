@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimbingan Less Private - Bimbel NFT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Navbar */
+    nav {
+       background-color: #4CAF50; /* hijau utama seperti about.html */
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    nav a.active {
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: calc(100vh - 200px);
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .divider {
+      height: 3px;
+      width: 100px;
+      background: white;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+    
+    .header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Content Section */
+    .content-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .content-section h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .content-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .content-text {
+      color: #7f8c8d;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .content-text ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .content-text li {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+    
+    .content-text li::before {
+      content: "✓";
+      color: #4CAF50;
+      font-weight: bold;
+      position: absolute;
+      left: -1.5rem;
+    }
+    
+    .highlight-box {
+      background: #f1f8ff;
+      border-left: 4px solid #4CAF50;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .highlight-box h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+    
+    /* Program Features */
+    .features-section {
+      margin-top: 3rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .feature-card {
+      background: #f3e5f5;
+      border: 1px solid #d1c4e9;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-color: #4CAF50;
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: #4CAF50;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .feature-card p {
+      color: #7f8c8d;
+    }
+    
+    /* Benefits Section */
+    .benefits-section {
+      margin-top: 3rem;
+      background: #f1f8ff;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    
+    .benefit-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid #4CAF50;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .benefit-icon {
+      font-size: 2rem;
+      color: #4CAF50;
+      margin-right: 1rem;
+      min-width: 50px;
+    }
+    
+    .benefit-content h3 {
+      color: #4CAF50;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Comparison Section */
+    .comparison-section {
+      margin-top: 3rem;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .comparison-table th, 
+    .comparison-table td {
+      padding: 1.2rem;
+      text-align: center;
+    }
+    
+    .comparison-table thead {
+      background: #4CAF50;
+      color: white;
+    }
+    
+    .comparison-table tbody tr:nth-child(odd) {
+      background: #f3e5f5;
+    }
+    
+    .comparison-table tbody tr:nth-child(even) {
+      background: white;
+    }
+    
+    .comparison-table .highlight {
+      background: #d1e7ff;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+    
+    .check-icon {
+      color: #4CAF50;
+      font-size: 1.5rem;
+    }
+    
+    .times-icon {
+      color: #f44336;
+      font-size: 1.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      margin-top: 3rem;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid #d1e7ff;
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: """;
+      font-size: 5rem;
+      color: #e8f5e9;
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      color: #7f8c8d;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #4CAF50;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    
+    .author-info h4 {
+      color: #2c3e50;
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      text-align: center;
+      color: white;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .cta-btn:hover {
+      background: #388e3c;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-item .label {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    /* Pricing Section */
+    .pricing-section {
+      margin-top: 3rem;
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .pricing-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      border: 2px solid #d1e7ff;
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card.popular {
+      border-color: #4CAF50;
+      box-shadow: 0 10px 25px rgba(76,175,80,0.15);
+      transform: scale(1.05);
+      position: relative;
+    }
+    
+    .popular-tag {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4CAF50;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    
+    .pricing-card h3 {
+      color: #2575fc;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .price {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #2575fc;
+      margin-bottom: 1.5rem;
+    }
+    
+    .price span {
+      font-size: 1rem;
+      color: #7f8c8d;
+    }
+    
+    .pricing-features {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+    
+    .pricing-features li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+    }
+    
+    .pricing-features li i {
+      color: #4CAF50;
+      margin-right: 10px;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: opacity 0.3s;
+    }
+    
+    .social-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .logo {
+        margin-bottom: 1rem;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-links a {
+        margin: 0.3rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .features-grid,
+      .benefits-grid,
+      .pricing-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .pricing-card.popular {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Bimbel GSC</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="guru.html">Guru</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Bimbingan Belajar Less Private</h1>
+      <div class="divider"></div>
+      <p>Program khusus dengan kelompok kecil (3-5 siswa) untuk pembelajaran lebih personal dengan biaya lebih terjangkau daripada privat penuh.</p>
+    </div>
+    
+    <!-- Content Section -->
+    <div class="content-section">
+      <h2>Solusi Pembelajaran Semi-Privatyang Efektif</h2>
+      <p class="content-text">
+        Program Less Private dari Bimbel GSC menawarkan pengalaman belajar yang hampir sama personalnya dengan les privat, tetapi dengan biaya yang lebih terjangkau. Dengan kelompok kecil berisi 3-5 siswa dengan level kemampuan sejenis, setiap siswa mendapatkan perhatian optimal dari pengajar sekaligus kesempatan untuk belajar dari teman sebaya.
+      </p>
+      
+      <div class="highlight-box">
+        <h3>Mengapa Memilih Program Less Private?</h3>
+        <p>Program Less Private memberikan keseimbangan sempurna antara pembelajaran personal dan interaksi sosial. Anda mendapatkan 70% manfaat les privat dengan hanya 40% biaya. Pengajar dapat memberikan perhatian khusus pada setiap siswa sementara siswa tetap bisa berdiskusi dan belajar bersama teman sebaya.</p>
+      </div>
+      
+      <h2>Keunggulan Program Less Private</h2>
+      <p class="content-text">
+        Program ini dirancang untuk memberikan:
+      </p>
+      <ul class="content-text">
+        <li>Pembelajaran yang lebih personal dibanding kelas reguler</li>
+        <li>Biaya lebih terjangkau daripada les privat penuh</li>
+        <li>Interaksi sosial dan kesempatan belajar kelompok</li>
+        <li>Fleksibilitas jadwal yang lebih baik</li>
+        <li>Kemampuan untuk menyesuaikan materi dengan kebutuhan kelompok</li>
+        <li>Lingkungan belajar yang lebih fokus dan kondusif</li>
+      </ul>
+      
+      <!-- Program Features -->
+      <div class="features-section">
+        <h2>Fitur Unggulan Program</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <h3>Kelompok Kecil</h3>
+            <p>Maksimal 5 siswa per kelompok dengan kemampuan sejenis</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3>Pengajar Berdedikasi</h3>
+            <p>Pengajar berpengalaman khusus untuk kelompok kecil</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3>Kurikulum Fleksibel</h3>
+            <p>Materi disesuaikan dengan kebutuhan kelompok</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Diskusi Interaktif</h3>
+            <p>Lebih banyak kesempatan tanya jawab dan diskusi</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Benefits Section -->
+      <div class="benefits-section">
+        <h2>Manfaat Less Private</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Biaya Lebih Terjangkau</h3>
+              <p>Hanya 40-50% biaya les privat penuh dengan manfaat hampir setara</p>
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Perhatian Personal</h3>
+              <p>Pengajar dapat fokus pada kebutuhan individu setiap siswa</p>
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Interaksi Sosial</h3>
+              <p>Siswa belajar berdiskusi dan bekerja dalam kelompok kecil</p>
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Fleksibilitas</h3>
+              <p>Jadwal dapat disesuaikan dengan kesepakatan kelompok</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Comparison Section -->
+      <div class="comparison-section">
+        <h2>Perbandingan Jenis Bimbingan</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Fitur</th>
+              <th>Kelas Reguler</th>
+              <th>Less Private</th>
+              <th>Privat Penuh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="highlight">Jumlah Siswa</td>
+              <td>15-25</td>
+              <td>3-5</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td class="highlight">Perhatian Pengajar</td>
+              <td><i class="fas fa-times times-icon"></i></td>
+              <td><i class="fas fa-check check-icon"></i></td>
+              <td><i class="fas fa-check check-icon"></i></td>
+            </tr>
+            <tr>
+              <td class="highlight">Interaksi Sosial</td>
+              <td><i class="fas fa-check check-icon"></i></td>
+              <td><i class="fas fa-check check-icon"></i></td>
+              <td><i class="fas fa-times times-icon"></i></td>
+            </tr>
+            <tr>
+              <td class="highlight">Penyesuaian Materi</td>
+              <td><i class="fas fa-times times-icon"></i></td>
+              <td><i class="fas fa-check check-icon"></i></td>
+              <td><i class="fas fa-check check-icon"></i></td>
+            </tr>
+            <tr>
+              <td class="highlight">Biaya per Pertemuan</td>
+              <td>Rp 80.000</td>
+              <td>Rp 150.000</td>
+              <td>Rp 300.000+</td>
+            </tr>
+            <tr>
+              <td class="highlight">Fleksibilitas Jadwal</td>
+              <td><i class="fas fa-times times-icon"></i></td>
+              <td><i class="fas fa-check check-icon"></i></td>
+              <td><i class="fas fa-check check-icon"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Pricing Section -->
+      <div class="pricing-section">
+        <h2>Paket Less Private</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Paket Dasar</h3>
+            <div class="price">Rp 1.200.000<span>/bulan</span></div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> 8 pertemuan @90 menit</li>
+              <li><i class="fas fa-check"></i> Kelompok 4-5 siswa</li>
+              <li><i class="fas fa-check"></i> Modul pembelajaran</li>
+              <li><i class="fas fa-times"></i> Konsultasi tambahan</li>
+              <li><i class="fas fa-times"></i> Tryout bulanan</li>
+            </ul>
+            <a href="https://wa.me/628567528671?text=Halo%20saya%20ingin%20mendaftar%20Paket%20Bimbel%20GSC" target="_blank" class="btn-pilih-paket">Pilih Paket</a>
+          </div>
+          
+          <div class="pricing-card popular">
+            <div class="popular-tag">POPULER</div>
+            <h3>Paket Premium</h3>
+            <div class="price">Rp 1.800.000<span>/bulan</span></div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> 12 pertemuan @90 menit</li>
+              <li><i class="fas fa-check"></i> Kelompok 3-4 siswa</li>
+              <li><i class="fas fa-check"></i> Modul pembelajaran lengkap</li>
+              <li><i class="fas fa-check"></i> 2x konsultasi tambahan</li>
+              <li><i class="fas fa-check"></i> Tryout bulanan</li>
+            </ul>
+            <a href="https://wa.me/628567528671?text=Halo%20saya%20ingin%20mendaftar%20Paket%20Bimbel%20GSC" target="_blank" class="btn-pilih-paket">Pilih Paket</a>
+          </div>
+          
+          <div class="pricing-card">
+            <h3>Paket Intensif</h3>
+            <div class="price">Rp 2.400.000<span>/bulan</span></div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> 16 pertemuan @90 menit</li>
+              <li><i class="fas fa-check"></i> Kelompok 3 siswa</li>
+              <li><i class="fas fa-check"></i> Modul lengkap + bank soal</li>
+              <li><i class="fas fa-check"></i> Konsultasi tanpa batas</li>
+              <li><i class="fas fa-check"></i> Tryout mingguan</li>
+            </ul>
+            <a href="https://wa.me/628567528671?text=Halo%20saya%20ingin%20mendaftar%20Paket%20Bimbel%20GSC" target="_blank" class="btn-pilih-paket">Pilih Paket</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonials -->
+      <div class="testimonials-section">
+        <h2>Apa Kata Mereka?</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Program Less Private ini benar-benar solusi terbaik. Anak saya dapat perhatian lebih dari guru tapi juga bisa belajar kelompok dengan teman-temannya. Nilainya meningkat signifikan dalam 3 bulan."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">BS</div>
+              <div class="author-info">
+                <h4>Bapak Setiawan</h4>
+                <p>Orang tua siswa SMA</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Saya memilih Less Private karena biayanya lebih terjangkau dari privat tapi lebih efektif dari kelas besar. Pengajarnya sangat perhatian dan kelompok belajarnya nyaman."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">DR</div>
+              <div class="author-info">
+                <h4>Dini Rahayu</h4>
+                <p>Siswa Kelas 11</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Sebagai guru, saya lebih bisa memantau perkembangan setiap siswa dalam kelompok kecil ini. Mereka lebih berani bertanya dan berdiskusi dibanding di kelas besar."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AP</div>
+              <div class="author-info">
+                <h4>Ahmad Putra, S.Pd</h4>
+                <p>Pengajar Matematika</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h2>Mulai Pengalaman Belajar yang Lebih Personal</h2>
+        <p>Daftar sekarang dan dapatkan diskon 15% untuk pendaftaran pertama</p>
+        <a href="#" class="cta-btn">Daftar Sekarang</a>
+      </div>
+      
+      <!-- Stats Section -->
+      <div class="stats">
+        <div class="stat-item">
+          <i class="fas fa-user-graduate"></i>
+          <div class="number">1.200+</div>
+          <div class="label">Siswa Less Private</div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-chart-line"></i>
+          <div class="number">89%</div>
+          <div class="label">Peningkatan Nilai</div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-smile"></i>
+          <div class="number">96%</div>
+          <div class="label">Tingkat Kepuasan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>Bimbingan Belajar GSC.</p>
+  </footer>
+</body>
+</html>

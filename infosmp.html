@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimbingan SMP - Bimbel NFT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Navbar */
+    nav {
+      background-color: #4CAF50; /* hijau utama */
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo i {
+      margin-right: 10px;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+    nav a.active {
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      min-height: calc(100vh - 200px);
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .divider {
+      height: 3px;
+      width: 100px;
+      background: white;
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+    
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Content Section */
+    .content-section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .content-section h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .content-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #4CAF50;
+      border-radius: 2px;
+    }
+    
+    .content-text {
+      color: #7f8c8d;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .content-text ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .content-text li {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+    
+    .content-text li::before {
+      content: "✓";
+      color: #4CAF50;
+      font-weight: bold;
+      position: absolute;
+      left: -1.5rem;
+    }
+    
+    .highlight-box {
+      background: #f1f8ff;
+      border-left: 4px solid #4CAF50;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .highlight-box h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+    
+    /* Program Features */
+    .features-section {
+      margin-top: 3rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .feature-card {
+      background: #f1f8ff;
+      border: 1px solid #d1e7ff;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+    
+    .feature-card:hover {
+      border-color: #4CAF50;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: #4CAF50;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .feature-card p {
+      color: #7f8c8d;
+    }
+    
+    /* Subjects Section */
+    .subjects-section {
+      margin-top: 3rem;
+    }
+    
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .subject-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      border: 2px solid #d1e7ff;
+      transition: all 0.3s ease;
+    }
+    
+    .subject-card:hover {
+      border-color: #4CAF50;
+      transform: scale(1.05);
+    }
+    
+    .subject-card i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .subject-card h3 {
+      color: #2c3e50;
+      font-size: 1.2rem;
+    }
+    
+    /* Jadwal & Daftar Siswa Section */
+    .kelas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .kelas-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: left;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      border: 2px solid #d1e7ff;
+      transition: all 0.3s ease;
+    }
+    
+    .kelas-card h3 {
+      color: #2c3e50;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .kelas-jadwal {
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .kelas-card ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+    
+    .kelas-card li {
+      margin-bottom: 0.5rem;
+      color: #7f8c8d;
+    }
+    
+    .kelas-nonaktif {
+      opacity: 0.6;
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      margin-top: 3rem;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid #d1e7ff;
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: """;
+      font-size: 5rem;
+      color: #e8f5e9;
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      color: #7f8c8d;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      background: #4CAF50;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    
+    .author-info h4 {
+      color: #2c3e50;
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      text-align: center;
+      color: white;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      background: #388e3c;
+    }
+    
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 2.5rem 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      margin: 0.5rem;
+    }
+    
+    .stat-item i {
+      font-size: 2.5rem;
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-item .label {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .social-links {
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: opacity 0.3s;
+    }
+    .social-links a .fa-whatsapp {
+      color: #25D366;
+    }
+    
+    .social-links a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .logo {
+        margin-bottom: 1rem;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-links a {
+        margin: 0.3rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .features-grid,
+      .subjects-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .kelas-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <a href="about.html" style="color:inherit; text-decoration:none; display:flex; align-items:center;">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Bimbel GSC</span>
+      </a>
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle Navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="program.html">Program</a>
+      <a href="guru.html">Guru</a>
+      <a href="about.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Bimbingan Belajar SMP</h1>
+      <div class="divider"></div>
+      <p>Program khusus untuk siswa SMP kelas 7-9 dengan pendekatan belajar yang menyenangkan dan persiapan Ujian Nasional.</p>
+    </div>
+    
+    <!-- Content Section -->
+    <div class="content-section">
+      <h2>Program Unggulan untuk Siswa SMP</h2>
+      <p class="content-text">
+        Program Bimbingan Belajar SMP dari Bimbel GSC dirancang khusus untuk membantu siswa kelas 7, 8, dan 9 dalam memahami materi pelajaran, meningkatkan prestasi akademik, dan mempersiapkan diri menghadapi Ujian Sekolah. Dengan metode pembelajaran yang inovatif dan pengajar profesional, kami membantu siswa menguasai konsep dasar dan mengembangkan kemampuan berpikir kritis.
+      </p>
+      
+      <div class="highlight-box">
+        <h3>Mengapa Memilih Program SMP di Bimbel GSC?</h3>
+        <p>Program kami telah membantu lebih dari 70 siswa SMP meraih nilai terbaik dan diterima di SMA favorit. Dengan rasio guru dan siswa 1:8, setiap siswa mendapatkan perhatian optimal sesuai kebutuhannya.</p>
+      </div>
+      
+      <h2>Target Pembelajaran</h2>
+      <p class="content-text">
+        Program ini bertujuan untuk:
+      </p>
+      <ul class="content-text">
+        <li>Memahami konsep dasar semua mata pelajaran inti SMP</li>
+        <li>Meningkatkan kemampuan pemecahan masalah</li>
+        <li>Mengembangkan keterampilan belajar mandiri</li>
+        <li>Mempersiapkan diri menghadapi Ujian Sekolah</li>
+        <li>Membangun kepercayaan diri dalam belajar</li>
+        <li>Mengasah kemampuan berpikir kritis dan analitis</li>
+      </ul>
+      
+      <!-- Program Features -->
+      <div class="features-section">
+        <h2>Keunggulan Program</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Kelas Kecil</h3>
+            <p>Maksimal 10 siswa per kelas untuk memastikan perhatian penuh dari pengajar</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3>Modul Eksklusif</h3>
+            <p>Modul pembelajaran lengkap yang dirancang khusus untuk kurikulum SMP</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3>Pengajar Berpengalaman</h3>
+            <p>Guru-guru profesional dengan pengalaman mengajar SMP minimal 5 tahun</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <h3>Platform Digital</h3>
+            <p>Akses ke platform belajar online dengan ribuan soal latihan dan video pembelajaran</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Subjects Section -->
+      <div class="subjects-section">
+        <h2>Mata Pelajaran</h2>
+        <p class="content-text">Kami memberikan bimbingan untuk semua mata pelajaran inti SMP:</p>
+        <div class="subjects-grid">
+          <div class="subject-card">
+            <i class="fas fa-calculator"></i>
+            <h3>Matematika</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-flask"></i>
+            <h3>IPA</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-book"></i>
+            <h3>Bahasa Indonesia</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-globe-asia"></i>
+            <h3>IPS</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-language"></i>
+            <h3>Bahasa Inggris</h3>
+          </div>
+          
+          <div class="subject-card">
+            <i class="fas fa-pray"></i>
+            <h3>PPKn</h3>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Jadwal & Daftar Siswa Section -->
+      <div class="features-section">
+        <h2>Jadwal & Daftar Siswa SMP</h2>
+        <div class="kelas-grid">
+          <!-- Kelas 7A -->
+          <div class="kelas-card">
+            <h3>Kelas 7A</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Senin & Rabu 17.00-18.30<br>Jumat 15.00-16.30</div>
+            <ol>
+              <li>Naurah Nur Salsabila 234</li>
+              <li>Aurelia Alisha 234</li>
+              <li>Suryani Putri Utami 234</li>
+              <li>Zahir Ali Akbar 234</li>
+              <li>Ilyas Wildan Sugiyanto 234</li>
+              <li>Alicia Putri Bilqis 234</li>
+              <li>Naufal Muhammad Al-Azhar 234</li>
+            </ol>
+          </div>
+          <!-- Kelas 7B -->
+          <div class="kelas-card">
+            <h3>Kelas 7B</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Senin & Rabu 19.00-20.30<br>Jumat 15.00-16.30</div>
+            <ol>
+              <li>Puput Wardani 256</li>
+              <li>Ifa Dhotul Ilahiyah 256</li>
+              <li>Siska Almaeroh 256</li>
+              <li>Tico Kristanto Manurung 262</li>
+              <li>Azza putri mikaila MTS</li>
+              <li>Kania Carisa Putri MTS</li>
+              <li>Rasya Galang Febrian 262</li>
+              <li>Farah sagita putri 193</li>
+              <li>Salma Al Qarira 193</li>
+              <li>Nur Afika 146</li>
+              <li>Muhammad Syafiq Ibrahim 256</li>
+              <li>Kinan Atha Nayla 146</li>
+            </ol>
+          </div>
+          <!-- Kelas 8A -->
+          <div class="kelas-card">
+            <h3>Kelas 8A</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Senin & Selasa 17.00-18.30<br>Rabu 19.00-20.30</div>
+            <ol>
+              <li>Siraj Rayyan Ali 193</li>
+              <li>Ade Galang Syabani 146</li>
+              <li>Muhammad Najib Raytama 13</li>
+              <li>Aura Nur Rahma 193</li>
+              <li>Khanaya Fabyan Jelita 193</li>
+              <li>Fathir Raditya Putra 193</li>
+              <li>Kenza Sandy Oktasaputra 234</li>
+              <li>Aura Vania Zahra146</li>
+              <li>Diva Nuraini 234</li>
+              <li>Atiqah Inas Keriyanto Al akhyar</li>
+            </ol>
+          </div>
+          <!-- Kelas 8B -->
+          <div class="kelas-card">
+            <h3>Kelas 8B</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Senin & Selasa 19.00-20.30<br>Kamis 17.00-18.30</div>
+            <ol>
+              <li>Shifa Ariana Dewi MTS</li>
+              <li>Nayla Syifa Al Mirra 256</li>
+              <li>Haikal Sukron Kalbuadi 256</li>
+              <li>Hanifah Septiani Dipo</li>
+              <li>Rania Artamevia MTS</li>
+              <li>Muhammad Weldy 256</li>
+              <li>Rahmat Langit Nugroho MTS</li>
+              <li>Sayidatina Aisyah Alifiyah idris Dipo</li>
+              <li>Faris Zyovan Musyaffa MTS</li>
+              <li>Kania Amiqatul Hubbiyah MTS</li>
+              <li>Dzaki Nur Jaffan 256</li>
+              <li>Farrel Mahardika 256</li>
+            </ol>
+          </div>
+          <!-- Kelas 9A -->
+          <div class="kelas-card">
+            <h3>Kelas 9A</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Selasa, Kamis & Jumat 19.00-20.30</div>
+            <ol>
+              <li>Khanza Allifia Kurniawan 234</li>
+              <li>Aurellia Putri Zavira 234</li>
+              <li>Zahwa Affah Muntazah 234</li>
+              <li>Ahmad Fattan Rifqi Kamil 234</li>
+              <li>Putri Rahmadhani 234</li>
+              <li>Adib Bayhaki 234</li>
+              <li>Cindy Shintia Dwi Amanda 234</li>
+              <li>Fadilla Putri Azzahra 234</li>
+              <li>Shafira Maulidya 234</li>
+              <li>Hazna kayneu lysandra 234</li>
+              <li>Davina Jocelyn 234</li>
+              <li>Muhammad Alfath Raiysqi 234</li>
+            </ol>
+          </div>
+          <!-- Kelas 9B -->
+          <div class="kelas-card">
+            <h3>Kelas 9B</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Senin, Rabu & Kamis 17.00-18.30</div>
+            <ol>
+              <li>Wanda Janny Laura 256</li>
+              <li>Aulia Putri Dinata 256</li>
+              <li>Daffa Dhiya Ulhaq 256</li>
+              <li>Aldi Tamado 256</li>
+              <li>Naurawangi Anggur A.H 256</li>
+              <li>Nabila Silviana 256</li>
+              <li>Adi Setiadi Saputra 256</li>
+              <li>Hafizh Azzaky 256</li>
+              <li>Agithazhana Dyta Pratiwi Dipo</li>
+            </ol>
+          </div>
+          <!-- Kelas 9C -->
+          <div class="kelas-card">
+            <h3>Kelas 9C</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Selasa, Kamis & Jumat 17.00-18.30</div>
+            <ol>
+              <li>Nabila Irsya 234</li>
+              <li>Devanya tiavani 234</li>
+              <li>Indiani Eka Putri 234</li>
+              <li>Cynthia Meda Doloksaribu 234</li>
+              <li>Azka Aprilia Damayanti 234</li>
+              <li>Fadhil Widia Ramadhan 234</li>
+              <li>Safa Zawal Mumtaz 234</li>
+              <li>Elisabeth Angelina 234</li>
+              <li>Azkia Aprilia 234</li>
+              <li>Kiarani Latiffa Anara 234</li>
+            </ol>
+          </div>
+          <!-- Kelas 9D -->
+          <div class="kelas-card">
+            <h3>Kelas 9D</h3>
+            <div class="kelas-jadwal"><i class="fas fa-calendar-alt"></i> Senin & Selasa 19.00-20.30<br>Rabu 17.00-18.30</div>
+            <ol>
+              <li>Hafshoh MTS</li>
+              <li>Falisha Syafitri 144</li>
+              <li>Kenzie Kariza Zulkaysi 193</li>
+              <li>Bilqis Putri Ananta 193</li>
+              <li>Izza NurAini 234</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonials -->
+      <div class="testimonials-section">
+        <h2>Testimoni Siswa</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Setelah ikut bimbel di GSC, nilai matematika saya naik dari 70 menjadi 90. Pengajarnya sangat sabar dan metode pembelajarannya mudah dimengerti."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">DS</div>
+              <div class="author-info">
+                <h4>Dina Septiani</h4>
+                <p>Siswa Kelas 8, SMPN 5 Jakarta</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Saya awalnya kesulitan dengan IPA, tapi setelah belajar di Bimbel GSC jadi lebih mudah dipahami. Tryout rutinnya sangat membantu persiapan ujian."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">RF</div>
+              <div class="author-info">
+                <h4>Rizky Fadillah</h4>
+                <p>Siswa Kelas 9, SMPN 12 Jakarta</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Kelas bahasa Inggris di GSC sangat menyenangkan. Tidak hanya belajar grammar tapi juga praktek percakapan. Sekarang saya lebih percaya diri berbahasa Inggris."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AP</div>
+              <div class="author-info">
+                <h4>Andi Putra</h4>
+                <p>Siswa Kelas 7, SMPN 8 Jakarta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h2>Siap Bergabung Dengan Program SMP Kami?</h2>
+        <a href="kontak.html" class="cta-btn">Daftar Sekarang</a>
+      </div>
+      
+      <!-- Stats Section -->
+      <div class="stats">
+        <div class="stat-item">
+          <i class="fas fa-user-graduate"></i>
+          <div class="number">77</div>
+          <div class="label">Siswa SMP</div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <div class="number">35+</div>
+          <div class="label">Pengajar SMP</div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-medal"></i>
+          <div class="number">92%</div>
+          <div class="label">Nilai di Atas KKM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/6282111159144?text=Halo%20Bimbingan%20Belajar%20GSC%2C%20saya%20ingin%20bertanya%20tentang%20program%20bimbel." target="_blank" title="Chat via WhatsApp" style="color: #25D366;">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>Bimbingan Belajar GSC.</p>
+  </footer>
+</body>
+</html>
